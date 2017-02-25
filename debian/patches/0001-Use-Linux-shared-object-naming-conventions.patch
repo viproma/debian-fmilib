@@ -1,0 +1,38 @@
+From: "Lars T. Kyllingstad" <lars.kyllingstad@sintef.no>
+Date: Sat, 25 Feb 2017 19:08:45 +0100
+Subject: Use Linux shared object naming conventions
+
+---
+ CMakeLists.txt | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1486642..44335be 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -16,6 +16,12 @@
+ # interface changes). CMake 2.8.4 and 2.8.5 are not tested.
+ cmake_minimum_required (VERSION 2.8.6 FATAL_ERROR)
+ 
++# Obtain library version number
++file(READ "FMILIB_Readme.txt" readme_contents)
++string(REGEX MATCH "\\\\version +([0-9]+)([.][0-9]+[.][0-9]+)" dummy "${readme_contents}")
++set(FMILibrary_VERSION "${CMAKE_MATCH_1}${CMAKE_MATCH_2}")
++set(FMILibrary_VERSION_MAJOR "${CMAKE_MATCH_1}")
++
+ # Prohibit in-source build
+ IF("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
+   message(FATAL_ERROR "In-source build is not supported. Please, use an empty directory for building the project.")
+@@ -285,6 +291,12 @@ if(FMILIB_BUILD_SHARED_LIB)
+ 	add_library(fmilib_shared SHARED ${FMILIB_SHARED_SRC})
+ 	target_link_libraries(fmilib_shared LINK_INTERFACE_LIBRARIES)
+ 	target_link_libraries(fmilib_shared ${FMILIB_SHARED_SUBLIBS})
++	if(UNIX)
++		set_target_properties(fmilib_shared PROPERTIES
++			OUTPUT_NAME "fmilib"
++			VERSION "${FMILibrary_VERSION}"
++			SOVERSION "${FMILibrary_VERSION_MAJOR}")
++	endif(UNIX)
+ 	set(FMILIB_TARGETS ${FMILIB_TARGETS} fmilib_shared)
+ endif()
+ 
