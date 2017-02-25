@@ -1,0 +1,37 @@
+Source: fmilib2
+Maintainer: Lars T. Kyllingstad <lars.kyllingstad@sintef.no>
+Section: libs
+Priority: optional
+Build-depends: cmake (>= 2.8.6), debhelper (>= 9), doxygen (>= 1.5.8), gcc (>= 4:4.8)
+Standards-Version: 3.9.2
+Homepage: http://jmodelica.org/FMILibrary
+
+Package: libfmilib2
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: FMI Library
+ FMI Library (FMIL) is a software package written in C that enables integration
+ of Functional Mock-up Units (FMUs) import in applications. FMI Library is an
+ independent open-source implementation of the FMI open standard
+ (www.fmi-standard.org). The library provides a C API for interacting with all
+ parts of FMUs, including unzipping, loading of shared object files (DLLs)
+ contained in FMUs, as well as parsing of XML model metadata files. The user is
+ thereby relieved from managing the details of FMU interaction, which
+ significantly reduce the time required to implement FMU import capabilities.
+
+Package: libfmilib2-dev
+Section: libdevel
+Architecture: any
+Depends: libfmilib2 (= ${binary:Version}), ${misc:Depends}
+Description: FMI Library (Development files)
+ FMI Library (FMIL) is a software package written in C that enables integration
+ of Functional Mock-up Units (FMUs) import in applications. FMI Library is an
+ independent open-source implementation of the FMI open standard
+ (www.fmi-standard.org). The library provides a C API for interacting with all
+ parts of FMUs, including unzipping, loading of shared object files (DLLs)
+ contained in FMUs, as well as parsing of XML model metadata files. The user is
+ thereby relieved from managing the details of FMU interaction, which
+ significantly reduce the time required to implement FMU import capabilities.
+ .
+ This package contains the libraries, headers and documentation needed for
+ development.
