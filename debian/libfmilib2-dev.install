@@ -1,3 +1,4 @@
 usr/include/*
+usr/lib/lib*.a
 usr/lib/lib*.so
 usr/doc/* usr/share/doc/libfmilib2-dev/
