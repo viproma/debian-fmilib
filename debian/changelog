@@ -1,4 +1,10 @@
-fmilib2 (2.0.2-1) UNRELEASED; urgency=low
+fmilib2 (2.0.3-1) experimental; urgency=low
+
+  * (No Debian-specific changes.)
+
+ -- Lars Tandle Kyllingstad <lars.kyllingstad@sintef.no>  Mon, 23 Apr 2018 21:05:15 +0100
+
+fmilib2 (2.0.2-1) experimental; urgency=low
 
   * Initial release.
 
