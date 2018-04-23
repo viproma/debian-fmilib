@@ -8,10 +8,10 @@ Upstream generates it in the installation target tree.
  1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 44335be..1040bc3 100644
+index 697aeee..e43d260 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -359,7 +359,7 @@ endfunction()
+@@ -362,7 +362,7 @@ endfunction()
  
  if(FMILIB_GENERATE_DOXYGEN_DOC)
  
@@ -20,7 +20,7 @@ index 44335be..1040bc3 100644
  
  	set(DOXYFILE_IN ${FMILIBRARYHOME}/Config.cmake/fmilib_doxydoc.conf CACHE INTERNAL "Doxygen config file")
  	set(DOXYFILE_IMAGE_DIR "${FMILIBRARYHOME}/images" CACHE INTERNAL "Doxygen images" FORCE)
-@@ -381,11 +381,12 @@ if(FMILIB_GENERATE_DOXYGEN_DOC)
+@@ -384,11 +384,12 @@ if(FMILIB_GENERATE_DOXYGEN_DOC)
  	set(DOXYFILE_SOURCE_DIR "${FMILIBRARYBUILD}/doc" CACHE INTERNAL "Doxygen default source dir" FORCE)
  	set(DOXYFILE_EXTRA_SOURCES "${DOXYFILE_EXTRA_SOURCES} \"${FMILIBRARYHOME}/Test\"")
  

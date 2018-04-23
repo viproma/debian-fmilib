@@ -7,7 +7,7 @@ Subject: Use Linux shared object naming conventions
  1 file changed, 12 insertions(+)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 1486642..44335be 100644
+index f7372bf..697aeee 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -16,6 +16,12 @@
@@ -23,9 +23,9 @@ index 1486642..44335be 100644
  # Prohibit in-source build
  IF("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
    message(FATAL_ERROR "In-source build is not supported. Please, use an empty directory for building the project.")
-@@ -285,6 +291,12 @@ if(FMILIB_BUILD_SHARED_LIB)
- 	add_library(fmilib_shared SHARED ${FMILIB_SHARED_SRC})
- 	target_link_libraries(fmilib_shared LINK_INTERFACE_LIBRARIES)
+@@ -288,6 +294,12 @@ if(FMILIB_BUILD_SHARED_LIB)
+     endif()
+ 
  	target_link_libraries(fmilib_shared ${FMILIB_SHARED_SUBLIBS})
 +	if(UNIX)
 +		set_target_properties(fmilib_shared PROPERTIES
